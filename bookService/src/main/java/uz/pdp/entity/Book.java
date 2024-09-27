@@ -13,5 +13,5 @@ public class Book {
     private Author author;
     private Double price;
     private Genre genre;
-    private int publicationYear;  // New field for publication year
+    private int publicationYear;
 }
