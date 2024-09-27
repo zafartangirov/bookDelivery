@@ -169,13 +169,4 @@ public class BookProject {
         return books.stream()
                 .collect(Collectors.toMap(Book::getName, book -> book.getName().split(" ").length));
     }
-
-
-
-
-
-
-
-
-
 }
