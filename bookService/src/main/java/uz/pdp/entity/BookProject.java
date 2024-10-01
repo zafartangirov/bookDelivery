@@ -182,4 +182,24 @@ public class BookProject {
         return books.stream()
                 .collect(Collectors.groupingBy(Book::getGenre, Collectors.counting()));
     }
+
+    public static void generateSummary(List<Book> books, List<Author> authors, List<Order> orders) {
+        long totalBooks = books.size();
+
+        long totalAuthors = authors.size();
+        
+        double totalRevenue = orders.stream()
+                .mapToDouble(Order::getTotalPrice)
+                .sum();
+
+        DoubleSummaryStatistics stats = books.stream()
+                .collect(Collectors.summarizingDouble(Book::getPrice));
+        double averageBookPrice = stats.getAverage();
+
+        System.out.println("Umumiy hisobot:");
+        System.out.println("Barcha kitoblar: " + totalBooks);
+        System.out.println("Barcha aftorlar: " + totalAuthors);
+        System.out.println("Umumiy jamg'arma: $" + totalRevenue);
+        System.out.println("O'rtacha kitobning narxi: $" + averageBookPrice);
+    }
 }
