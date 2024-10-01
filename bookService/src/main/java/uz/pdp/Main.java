@@ -230,9 +230,9 @@ public class Main {
         });
 
         //28
-        List<Book> books = Arrays.asList(book1, book2, book3);
+        List<Book> books19 = Arrays.asList(book1, book2, book3);
 
-        Map<Genre, Long> booksPerGenre = BookOperations.countBooksPerGenre(books);
+        Map<Genre, Long> booksPerGenre = BookOperations.countBooksPerGenre(books19);
 
         booksPerGenre.forEach((genre, count) -> System.out.println(genre + ": " + count + " kitoblar"));
     }
