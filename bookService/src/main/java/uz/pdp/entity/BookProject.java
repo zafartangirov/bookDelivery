@@ -178,4 +178,8 @@ public class BookProject {
                     else return "60 dan katta";
                 }));
     }
+    public static Map<Genre, Long> countBooksPerGenre(List<Book> books) {
+        return books.stream()
+                .collect(Collectors.groupingBy(Book::getGenre, Collectors.counting()));
+    }
 }
