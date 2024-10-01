@@ -169,4 +169,13 @@ public class BookProject {
         return books.stream()
                 .collect(Collectors.toMap(Book::getName, book -> book.getName().split(" ").length));
     }
+    public static Map<String, List<Customer>> groupCustomersByAge(List<Customer> customers) {
+        return customers.stream()
+                .collect(Collectors.groupingBy(customer -> {
+                    if (customer.getAge() < 18) return "kichik 18 dan";
+                    else if (customer.getAge() <= 35) return "18 - 35";
+                    else if (customer.getAge() <= 60) return "35 - 60";
+                    else return "60 dan katta";
+                }));
+    }
 }
