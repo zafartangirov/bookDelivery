@@ -222,7 +222,7 @@ public class Main {
         //27
         List<Customer> customers = Arrays.asList(customer1, customer2, customer33, customer4);
 
-        Map<String, List<Customer>> customersByAge = CustomerOperations.groupCustomersByAge(customers);
+        Map<String, List<Customer>> customersByAge = BookProject.groupCustomersByAge(customers);
 
         customersByAge.forEach((ageGroup, groupCustomers) -> {
             System.out.println(ageGroup + ":");
@@ -232,8 +232,17 @@ public class Main {
         //28
         List<Book> books19 = Arrays.asList(book1, book2, book3);
 
-        Map<Genre, Long> booksPerGenre = BookOperations.countBooksPerGenre(books19);
+        Map<Genre, Long> booksPerGenre = BookProject.countBooksPerGenre(books19);
 
         booksPerGenre.forEach((genre, count) -> System.out.println(genre + ": " + count + " kitoblar"));
+
+        //29
+        List<Book> books20 = Arrays.asList(book1, book2);
+        List<Author> authors3 = Arrays.asList(author1, author2);
+        Order order4 = new Order(new Customer(), Arrays.asList(book1, book2), 49.98, true);
+
+        List<Order> orders4 = Arrays.asList(order4);
+        
+        BookProject.generateSummary(books20, authors3, orders4);
     }
 }
