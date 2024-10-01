@@ -22,6 +22,11 @@ public class Main {
 
         Customer customer3 = new Customer("John Doe", 30, Arrays.asList(new Book(), new Book()));
 
+        Customer customer1 = new Customer("Alice", 17, Arrays.asList(new Book()));
+        Customer customer2 = new Customer("Bob", 25, Arrays.asList(new Book()));
+        Customer customer33 = new Customer("Charlie", 40, Arrays.asList(new Book()));
+        Customer customer4 = new Customer("Dave", 65, Arrays.asList(new Book()));
+
         // 1
         List<Book> books1 = Arrays.asList(book1, book2, book3);
 
@@ -146,7 +151,7 @@ public class Main {
 
         double totalRevenue = BookProject.calculateTotalRevenue(orders1);
 
-        System.out.println("Total revenue: $" + totalRevenue);
+        System.out.println("Total revenue: so'm" + totalRevenue);
 
         //18
         List<Order> orders2 = Arrays.asList(order1, order2, order3);
@@ -170,7 +175,7 @@ public class Main {
 
         List<Book> sortedBooks2 = BookProject.sortBooksByYearAndPrice(books16);
 
-        sortedBooks2.forEach(book -> System.out.println(book.getName() + " (" + book.getPublicationYear() + ") - $" + book.getPrice()));
+        sortedBooks2.forEach(book -> System.out.println(book.getName() + " (" + book.getPublicationYear() + ") - so'm" + book.getPrice()));
 
         //21
         List<Author> authors = Arrays.asList(author1, author2, author3, author4);
@@ -205,15 +210,23 @@ public class Main {
 
         Optional<Order> mostExpensiveOrder = BookProject.findMostExpensiveOrder(orders3);
 
-        mostExpensiveOrder.ifPresent(order -> System.out.println("Most expensive order: $" + order.getTotalPrice()));
+        mostExpensiveOrder.ifPresent(order -> System.out.println("Eng qimmat order: so'm" + order.getTotalPrice()));
 
         //26
         List<Book> books18 = Arrays.asList(book1, book2);
 
         Map<String, Integer> titleWordCounts = BookProject.getBookTitleWordCount(books18);
 
-        titleWordCounts.forEach((title, count) -> System.out.println(title + " has " + count + " words in the title"));
+        titleWordCounts.forEach((title, count) -> System.out.println(title + " has " + count + " ta nomdagi so'zlar"));
 
+        //27
+        List<Customer> customers = Arrays.asList(customer1, customer2, customer33, customer4);
 
+        Map<String, List<Customer>> customersByAge = CustomerOperations.groupCustomersByAge(customers);
+
+        customersByAge.forEach((ageGroup, groupCustomers) -> {
+            System.out.println(ageGroup + ":");
+            groupCustomers.forEach(customer -> System.out.println(" - " + customer.getName()));
+        });
     }
 }
