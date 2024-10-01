@@ -228,5 +228,12 @@ public class Main {
             System.out.println(ageGroup + ":");
             groupCustomers.forEach(customer -> System.out.println(" - " + customer.getName()));
         });
+
+        //28
+        List<Book> books = Arrays.asList(book1, book2, book3);
+
+        Map<Genre, Long> booksPerGenre = BookOperations.countBooksPerGenre(books);
+
+        booksPerGenre.forEach((genre, count) -> System.out.println(genre + ": " + count + " kitoblar"));
     }
 }
